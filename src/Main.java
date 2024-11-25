@@ -8,7 +8,9 @@ public class Main {
 		Cliente nico=new Cliente("Nico", "1245543", "123", "Normal", new Cuenta(1234, 10000));
 		Cliente maxi= new Cliente("Maxi", "1245543", "123", "Normal", new Cuenta(12345, 10000));
 		Cliente luca= new Cliente("Luca", "1245543", "123", "Normal", new Cuenta(12345, 20000));
-		
+		Usuario.agregarCliente(maxi);
+		Usuario.agregarCliente(nico);
+		Usuario.agregarCliente(luca);
 		String[] opciones= {
 				"Registro","Login","Salir"
 		};

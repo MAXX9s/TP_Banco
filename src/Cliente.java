@@ -35,6 +35,7 @@ public class Cliente extends Usuario{
 		opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", null, 0, 0, null, OpcionesCliente.values(), OpcionesCliente.values());
 		
 		
+		
 	}
 	
 	public void Registro() {
@@ -76,8 +77,7 @@ public class Cliente extends Usuario{
 			} else {
 	            cuenta1.setSaldo(cuenta1.getSaldo() - monto);
 	            JOptionPane.showMessageDialog(null, "Transaccion exitosa!!");
-
-				JOptionPane.showMessageDialog(null,"Saldo: $"+ cuenta1.getSaldo());
+				JOptionPane.showMessageDialog(null, "Transferencia con exito!!\n" + "Sea Descontado de su saldo: $"+ monto+ "\nSaldo Actual: $"+ cuenta1.getSaldo());
 				return;
 			}
 			
@@ -106,9 +106,14 @@ public class Cliente extends Usuario{
 			 monto=Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad que desea depositar"));
 	            cuenta.setSaldo(cuenta.getSaldo() + monto);
 			JOptionPane.showMessageDialog(null, "Deposito con exito!!\n" + "Sea Agregado a su saldo: $"+ monto+ "\nSaldo Actual: $"+ cuenta.getSaldo());
-		
+			return;
 	}
 	
-	
+	public void Retirar(double monto) {
+		 monto=Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad que desea depositar"));
+         cuenta.setSaldo(cuenta.getSaldo() - monto);
+		JOptionPane.showMessageDialog(null, "Retiro con exito!!\n" + "Sea Descontado de su saldo: $"+ monto+ "\nSaldo Actual: $"+ cuenta.getSaldo());
+		return;
+	} 
 	
 }
