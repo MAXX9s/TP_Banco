@@ -10,14 +10,11 @@ public class Main {
 		Cliente nico=new Cliente("Nico", "1245543", "123", "Normal",new Cuenta(0,0));
 		Cliente maxi= new Cliente("Maxi", "1245543", "123", "Normal",new Cuenta(2222, 0));
 		Cliente luca= new Cliente("Luca", "1245543", "123", "Normal",new Cuenta(1122, 0));
-		
-		
+		Administrador gama=new Administrador("Gama","1223","1234",01,null,null);
 		Movimiento movimiento = new Movimiento(LocalDateTime.now(), "Transferencia inicial", 1000, nico);
-
 		Usuario.agregarCliente(maxi);
 		Usuario.agregarCliente(nico);
 		Usuario.agregarCliente(luca);
-		Administrador gama=new Administrador("Gama","1223","1234",01,null,null);
 
 		String[] opciones= {
 				"Registro","Login","Salir"
