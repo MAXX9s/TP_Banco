@@ -39,7 +39,7 @@ public class Cuenta {
 	public void Ingreso() {
 		nroCuenta = (int) (Math.random() * 9000) + 1000;
 		saldo=Double.parseDouble(JOptionPane.showInputDialog("Ingrese su saldo"));
-		JOptionPane.showMessageDialog(null, nroCuenta);
+		
 		
 	}
 	

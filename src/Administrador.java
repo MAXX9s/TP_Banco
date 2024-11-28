@@ -36,7 +36,7 @@ public class Administrador extends Usuario {
 		setNombre(JOptionPane.showInputDialog("Ingrese su nuevo nombre"));
 		setContrasena(JOptionPane.showInputDialog("Ingrese su nueva contraseña"));
 		}while(getNombre().isEmpty() || getContrasena().isEmpty());
-		JOptionPane.showMessageDialog(null, "Felicidades maquina te registraste!!");
+		JOptionPane.showMessageDialog(null, "");
 		
 	}
 	

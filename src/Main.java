@@ -17,7 +17,7 @@ public class Main {
 		Usuario.agregarCliente(maxi);
 		Usuario.agregarCliente(nico);
 		Usuario.agregarCliente(luca);
-		Administrador gama=new Administrador();
+		Administrador gama=new Administrador("Gama","1223","1234",01,null,null);
 
 		String[] opciones= {
 				"Registro","Login","Salir"
@@ -28,11 +28,12 @@ public class Main {
 		String[] menucliente={
 				"Acciones","Movimientos","Ver saldo ","Modificar","Salir"
 		};
+		
 		String[] menuadmin={
 				"Clientes","Movimientos","Eliminar Movimiento","Salir"
 		};
 		String[] opcionesad= {
-				"Registro","Login","Salir"
+				"Login","Salir"
 		};
 		String[] tipousu= {
 				"Usuario","Administrador","Salir "
@@ -58,7 +59,7 @@ public class Main {
 				nico.Login("","");
 
 					do {
-						selec2=JOptionPane.showOptionDialog(null,"Bienvenido Usuario que desea realizar el dia de hoy:","Menu",JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/messias.png")),menucliente, menucliente[0]);
+						selec2=JOptionPane.showOptionDialog(null,"Bienvenido "+nico.getNombre()+" que desea realizar el dia de hoy:","Menu",JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/messias.png")),menucliente, menucliente[0]);
 						switch (selec2) {
 						case 0:
 							nico.Menu();
@@ -90,15 +91,11 @@ public class Main {
 				do {
 					selec4=JOptionPane.showOptionDialog(null,"Bienvenido Administrador:","Inicio",JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/messias.png")),opcionesad, opcionesad[0]);
 					switch (selec4) {
-					case 0:
-						gama.Registro();
-						
-						break;
 
-					case 1:
+					case 0:
 						gama.Login("","");
 						do {
-							selec5=JOptionPane.showOptionDialog(null,"Bienvenido Admin que desea realizar el dia de hoy:","Menu",JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/messias.png")),menuadmin, menuadmin[0]);
+							selec5=JOptionPane.showOptionDialog(null,"Bienvenido "+gama.getNombre()+" que desea realizar el dia de hoy:","Menu",JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/messias.png")),menuadmin, menuadmin[0]);
 							switch (selec5) {
 							case 0:
 								gama.verClientes();
@@ -116,7 +113,7 @@ public class Main {
 						} while (selec5!=3);
 						break;
 					}
-				} while (selec4!=2);
+				} while (selec4!=1);
 				break;
 			}
 			

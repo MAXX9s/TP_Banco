@@ -1,6 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Cliente extends Usuario{
@@ -36,12 +37,14 @@ public class Cliente extends Usuario{
 	public String toString() {
 		return "Cliente:" + getNombre()+ "\n";
 	}
-	@Override
+	
 	public void Menu() {
 		Movimiento movin = new Movimiento(); 
 		int opcion=0;
 	do {
-		opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", null, 0, 0, null, OpcionesCliente.values(), OpcionesCliente.values());
+		opcion=JOptionPane.showOptionDialog(null,this.getNombre()+" que accio realizar el dia de hoy:","Menu",JOptionPane.DEFAULT_OPTION, 0
+				, new ImageIcon(Main.class.getResource("/img/messias.png")),OpcionesCliente.values(), OpcionesCliente.values());
+
 		switch (opcion) {
 		case 0:
 			this.Transferir();
@@ -65,9 +68,9 @@ public class Cliente extends Usuario{
 		setNombre(JOptionPane.showInputDialog("Ingrese su nuevo nombre"));
 		setContrasena(JOptionPane.showInputDialog("Ingrese su nueva contraseña"));
 		}while(getNombre().isEmpty() || getContrasena().isEmpty());
-		JOptionPane.showMessageDialog(null, "Felicidades maquina te registraste!!");
 		getCuenta().Ingreso();
-
+		JOptionPane.showMessageDialog(null, "Felicidades " +this.getNombre()+ " haz abierto una cuenta en el banco Messias!");
+		
 	}
 	
 	
@@ -140,6 +143,7 @@ public class Cliente extends Usuario{
 	public void Depositar ( double monto, Cuenta cuenta) {
 		
 			 monto=Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad que desea depositar"));
+			 
 	            cuenta.setSaldo(cuenta.getSaldo() + monto);
 	            Movimiento Movimientonuevo = new Movimiento( LocalDateTime.now()," Deposito", (int) monto,
 		                this  );
@@ -150,12 +154,16 @@ public class Cliente extends Usuario{
 	
 	public void Retirar(double monto) {
 		 monto=Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad que desea depositar"));
+		 if(this.getCuenta().getSaldo()<monto) {
+			 JOptionPane.showMessageDialog(null,"El dinero en cuenta es insuficiente!!");
+		 }else {
          cuenta.setSaldo(cuenta.getSaldo() - monto);
          Movimiento Movimientonuevo = new Movimiento( LocalDateTime.now()," Retiro", (int) monto,
 	                this  );
 		this.cuenta.getMovimientos().add(Movimientonuevo);
 		JOptionPane.showMessageDialog(null, "Retiro con exito!!\n" + "Sea Descontado de su saldo: $"+ monto+ "\nSaldo Actual: $"+ cuenta.getSaldo());
 		return;
+		 }
 	} 
 
 	public void Consulta() {
@@ -179,7 +187,8 @@ public class Cliente extends Usuario{
 		int opcion=0;
 		String[] menu= {"Nombre","Contraseña","Nro Cuenta","Salir"};
 		do {
-		opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", null, 0, 0, null, menu,menu[0]);
+		opcion=JOptionPane.showOptionDialog(null,this.getNombre()+" que desea realizar el dia de hoy:","Menu",JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/messias.png")),menu, menu[0]);
+
 		switch (opcion) {
 		case 0:
 			nom=Caracteres("Ingrese su nuevo nombre:");
