@@ -2,6 +2,7 @@
 public enum OpcionesCliente {
 	Transferir,
 	Depositar,
-	Retirar
+	Retirar,
+	Salir
 
 }

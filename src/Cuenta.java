@@ -10,7 +10,7 @@ public class Cuenta {
 		super();
 		this.nroCuenta = nroCuenta;
 		this.saldo = saldo;
-		this.movimientos = movimientos;
+		
 	}
 	public Cuenta() {}
 	public int getNroCuenta() {
@@ -33,15 +33,16 @@ public class Cuenta {
 	}
 	@Override
 	public String toString() {
-		return "Cuenta [nroCuenta=" + nroCuenta + ", saldo=" + saldo + ", movimientos=" + movimientos + "]";
+		return "Cuenta: nroCuenta=" + nroCuenta + ", saldo=" + saldo + "\n";
 	}
 	
 	public void Ingreso() {
-		nroCuenta=(int) Math.random()*100 + 1000;
+		nroCuenta = (int) (Math.random() * 9000) + 1000;
 		saldo=Double.parseDouble(JOptionPane.showInputDialog("Ingrese su saldo"));
+		JOptionPane.showMessageDialog(null, nroCuenta);
 		
 	}
-
+	
 		
 	
 	

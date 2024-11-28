@@ -7,12 +7,14 @@ public class Movimiento {
 	private String detalle;
 	private int movimiento;
 	private Cliente cliente;
-	public Movimiento(LocalDateTime fecha, String detalle, int movimiento, Cliente cliente) {
+	
+	public Movimiento(LocalDateTime fecha, String detalle, int movimiento, Cliente cliente ){
 		super();
 		this.fecha = fecha;
 		this.detalle = detalle;
 		this.movimiento = movimiento;
 		this.cliente = cliente;
+		this.movimiento=movimiento;
 	}
 	public Movimiento () {}
 	public LocalDateTime getFecha() {
@@ -39,10 +41,11 @@ public class Movimiento {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "Movimiento [fecha=" + fecha + ", detalle=" + detalle + ", movimiento=" + movimiento + ", cliente="
-				+ cliente + "]";
+		return "Movimiento Fecha=" + fecha + ", Detalle=" + detalle + ", Monto= $" + movimiento +  "\n";
 	}
 	
 	public void opciones() {
@@ -51,10 +54,17 @@ public class Movimiento {
 		opcion = JOptionPane.showOptionDialog(null, "Seleccione el movimiento que desea realizar:", null,0,0, null, OpcionesCliente.values(), OpcionesCliente.values());
 		
 		
-		
-		
+	}
 	
-		
+	public void AdHisto() {
+	JOptionPane.showMessageDialog(null,"Registro de Movimientos:\n"+ getCliente().getCuenta().getMovimientos());
+	}
+	public void Remover() {
+		int nom=0;
+		nom=Integer.parseInt(JOptionPane.showInputDialog(getCliente().getCuenta().getMovimientos(),"Cual quiere eliminar:"));
+		getCliente().getCuenta().getMovimientos().remove(nom);
+		JOptionPane.showMessageDialog(null,"Registro de Movimientos:\n"+ getCliente().getCuenta().getMovimientos());
+
 	}
 	
 }
